@@ -1,0 +1,20 @@
+workflows:
+  matching_world_kids_android_debug:
+    name: Matching World Kids Android Debug
+    max_build_duration: 60
+    environment:
+      node: 20
+      java: 17
+    scripts:
+      - name: Install npm packages
+        script: |
+          npm ci
+      - name: Sync Capacitor Android project
+        script: |
+          npx cap sync android
+      - name: Build Android debug APK
+        script: |
+          cd android
+          ./gradlew assembleDebug
+    artifacts:
+      - android/app/build/outputs/apk/debug/*.apk
