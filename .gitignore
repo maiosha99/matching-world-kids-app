@@ -1,0 +1,15 @@
+node_modules/
+
+.gradle/
+build/
+android/.gradle/
+android/app/build/
+android/build/
+
+.idea/
+*.iml
+
+local.properties
+
+dist/
+coverage/

@@ -1,0 +1,8 @@
+{
+  "appId": "com.matchingworldkids.app",
+  "appName": "Matching World Kids",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
