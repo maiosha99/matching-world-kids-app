@@ -19,3 +19,24 @@ workflows:
           ./gradlew assembleDebug
     artifacts:
       - android/app/build/outputs/apk/debug/*.apk
+
+  matching_world_kids_android_release_aab:
+    name: Matching World Kids Android Release AAB
+    max_build_duration: 60
+    environment:
+      node: 20
+      java: 21
+    scripts:
+      - name: Install npm packages
+        script: |
+          npm ci
+      - name: Sync Capacitor Android project
+        script: |
+          npx cap sync android
+      - name: Build Android release bundle
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/bundle/release/*.aab
